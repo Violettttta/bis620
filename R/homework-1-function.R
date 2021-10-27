@@ -15,10 +15,16 @@ num_na <- function(x) {
 #' @param y a numeric value.
 #' @return The larger value of the two values.
 #' @export
-
-larger <- function(x, y) {
-  if (x > y) {
-    print(x)
+status <- function(x) {
+  if ((x == "Progressive disease") || (x == "Stable disease")) {
+    print("Disease")
   }
-  else print(y)
+  else if ((x == "Partial response") || (x == "Complete response")) {
+    print("Response")
+  } else {
+    print("ERROR")
+    }
 }
+
+
+
