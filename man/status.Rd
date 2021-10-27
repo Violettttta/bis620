@@ -2,18 +2,16 @@
 % Please edit documentation in R/homework-1-function.R
 \name{status}
 \alias{status}
-\title{Get the larger value of the two values}
+\title{Get the status of a given response}
 \usage{
 status(x)
 }
 \arguments{
-\item{x}{a numeric value.}
-
-\item{y}{a numeric value.}
+\item{x}{a character: the response of the patient.}
 }
 \value{
-The larger value of the two values.
+The status of a given response.
 }
 \description{
-Return the larger one of the two values.
+Return the status of a given response.
 }

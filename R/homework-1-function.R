@@ -22,8 +22,5 @@ status <- function(x) {
     print("Response")
   } else {
     print("ERROR")
-    }
+  }
 }
-
-
-
