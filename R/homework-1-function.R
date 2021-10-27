@@ -8,12 +8,11 @@ num_na <- function(x) {
   sum(is.na(x))
 }
 
-#' @title Get the larger value of the two values
+#' @title Get the status of a given response
 #'
-#' @description Return the larger one of the two values.
-#' @param x a numeric value.
-#' @param y a numeric value.
-#' @return The larger value of the two values.
+#' @description Return the status of a given response.
+#' @param x a character: the response of the patient.
+#' @return The status of a given response.
 #' @export
 status <- function(x) {
   if ((x == "Progressive disease") || (x == "Stable disease")) {
