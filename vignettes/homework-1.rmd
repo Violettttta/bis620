@@ -29,14 +29,12 @@ The folder called NCT00364013 (NCT number) contains all the data needed.
 
 ### Load library
 ```{r}
-library(forceps)
 library(dplyr)
 library(haven)
 library(tibble)
 library(purrr)
 library(tidyr)
 library(listdown)
-library(variate)
 library(gtsummary)
 library(patchwork)
 library(ggplot2)
