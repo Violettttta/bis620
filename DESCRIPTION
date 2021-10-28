@@ -17,11 +17,9 @@ Imports:
   ggplot2,
   forceps,
   variate,
-  listdown
 Remotes:
     kaneplusplus/forceps,
-    kaneplusplus/variate,
-    kaneplusplus/listdown
+    kaneplusplus/variate
 Suggests:
   DT,
   rmarkdown,
