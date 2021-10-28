@@ -14,7 +14,14 @@ Depends:
   R (>= 3.5.0)
 Imports:
   dplyr,
-  ggplot2
+  ggplot2,
+  forceps,
+  variate,
+  listdown
+Remotes:
+    kaneplusplus/forceps,
+    kaneplusplus/variate,
+    kaneplusplus/listdown
 Suggests:
   DT,
   rmarkdown,
