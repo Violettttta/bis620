@@ -1,8 +1,10 @@
 ---
-title: "Assignment 1"
-author: "Ziqiu Zheng, Zimo Yang"
-date: "9/27/2021"
-output: html_document
+title: "homework-1"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{homework-1}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
 
 ```{r setup, include=FALSE}
@@ -41,25 +43,29 @@ library(ggplot2)
 library(plotly)
 library(ggpubr)
 library(forcats)
+library(bis620)
 ```
 
 ### Load data and rename
 ```{r}
-file_names_all <- dir("NCT00364013")
-file_names <- file_names_all[grep("sas7bdat", file_names_all)]
-dt <- map(file_names, ~ read_sas(file.path("NCT00364013", .x)))
-prefix <- gsub(".sas7bdat", "", file_names)
-names(dt) <- prefix
+data(DEMO)
+demo <- DEMO
+
+data(RESPEVAL)
+respeval <- RESPEVAL
+
+data(AE)
+ae <- AE
 ```
 
 ### Data set: demo (Demographics and BL Characteristics, one record per subject)
 ### Variable: TRT (Assigned Treatment)
 ```{r}
 #Number of patients
-nrow(dt$demo)
+nrow(demo)
 
 #Numbers of patients in treatment group (FOLFOX alone Panitumumab) and placebo group (FOLFOX)
-table(dt$demo$TRT)
+table(demo$TRT)
 ```
 The numbers of patients in two groups are approximately equal.
 
@@ -67,16 +73,16 @@ The numbers of patients in two groups are approximately equal.
 ### Variable: RSRESP (Overall Response Status)
 ```{r}
 #Check the number of patients in Response Evaluation data set
-length(unique(dt$respeval$SUBJID))
+length(unique(respeval$SUBJID))
 
 #All responses
-table(dt$respeval$RSRESP)
+table(respeval$RSRESP)
 ```
 
 ### Create a new data set: respeval_n
 ### Reorder levels of responses
 ```{r}
-respeval_n <- dt$respeval %>%
+respeval_n <- respeval %>%
   mutate(RSRESP = 
            factor(RSRESP,
                   c("Progressive disease", "Stable disease",
@@ -117,13 +123,13 @@ respeval_n
 ### Data set: ae (Adverse Events)
 ### Variable: AESEV (Grade/Severity)
 ```{r}
-table(dt$ae$AESEV)
+table(ae$AESEV)
 ```
 
 ### Create a new data set: aec
 ### Reorder levels of adverse events
 ```{r}
-aec <- dt$ae %>%
+aec <- ae %>%
   mutate(AESEV = 
            factor(AESEV,
                   levels = c("Mild", "Moderate", "Severe",
@@ -166,7 +172,7 @@ aec$worst_ae <- map(aec$aes, get_worst_ae) %>%
 ```{r}
 #Combine aec and respeval_n
 ar <- full_join(aec, respeval_n %>% select(SUBJID, nvisits, best_response), by = "SUBJID")
-ar <- full_join(ar, dt$demo %>% select(SUBJID, TRT), by = "SUBJID")
+ar <- full_join(ar, demo %>% select(SUBJID, TRT), by = "SUBJID")
 ar
 ```
 
@@ -311,13 +317,6 @@ p6 <- ggplot(Placebo_ae, aes(x = `Worst of Adverse Event`, y = Number)) +
 ggarrange(p5, p6, ncol = 2, nrow = 1)
 ```
 From this comparison, there are more serious adverse event associated with the treatment group than placebo group.
-
-### Create a html to include the dat set and percent stacked barcharts
-
-```{r fig.width=8}
-library(knitr)
-include_url("./html/index.html", height = "600px")
-```
 
 Based on what we have done about the exploratory, we put forward three potential research questions:
 1.	Does the treatment of both FOLFOX and Panitumumab improve the best response of patients than FOLFOX?

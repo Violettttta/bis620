@@ -19,6 +19,18 @@ Suggests:
   DT,
   rmarkdown,
   knitr,
-  testthat (>= 3.0.0)
+  testthat (>= 3.0.0),
+  forceps,
+  haven,
+  tibble,
+  purrr,
+  tidyr,
+  listdown,
+  gtsummary,
+  patchwork,
+  ggpubr,
+  plotly,
+  variate,
+  forcats
 Config/testthat/edition: 3
 VignetteBuilder: knitr
