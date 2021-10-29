@@ -28,6 +28,9 @@ Imports:
   forceps,
   variate,
   devtools
+Remotes: 
+  kaneplusplus/forceps,
+  kaneplusplus/variate
 Suggests:
   DT,
   rmarkdown,
