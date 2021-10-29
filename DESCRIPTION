@@ -14,7 +14,8 @@ Depends:
   R (>= 3.5.0)
 Imports:
   dplyr,
-  ggplot2
+  ggplot2,
+  devtools
 Remotes:
     kaneplusplus/forceps,
     kaneplusplus/variate

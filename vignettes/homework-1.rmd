@@ -29,6 +29,7 @@ The folder called NCT00364013 (NCT number) contains all the data needed.
 
 ### Load library
 ```{r}
+library(devtools)
 library(forceps)
 library(dplyr)
 library(haven)
