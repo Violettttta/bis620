@@ -52,10 +52,6 @@ test_that("The get_worst_ae function works", {
   expect_equal(get_worst_ae(aec$aes[[225]]), z)
 })
 
-test_that("The get_worst_ae function works", {
-  expect_equal(get_worst_ae(aec$aes[[764]]), z)
-})
-
 ar <- full_join(aec, respeval_n %>% select(SUBJID, nvisits, best_response), by = "SUBJID")
 ar <- full_join(ar, demo %>% select(SUBJID, TRT), by = "SUBJID")
 
