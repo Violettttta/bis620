@@ -28,7 +28,9 @@ Imports:
   forceps,
   variate,
   devtools,
-  Rmpfr
+  Rmpfr,
+  Matrix,
+  methods
 Remotes: 
   kaneplusplus/forceps,
   kaneplusplus/variate
