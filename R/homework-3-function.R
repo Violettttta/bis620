@@ -642,6 +642,22 @@ setMethod(
   }
 )
 
+#' @title Transpose for bis620_sparse_matrix
+#'
+#' @description Transpose function for bis620_sparse_matrix.
+#' @param x bis620_sparse_matrix.
+#' @return A transposed bis620_sparse_matrix.
+#' @rdname transpose
+#' @export
+setMethod(
+  "t",
+  c(x="bis620_sparse_matrix"),
+  function(x) {
+    b <- bis620_sparse_matrix(i = x@j, j = x@i, x = x@x)
+    b
+  }
+)
+
 ## 3
 
 # change a dense matrix to sparse matrix

@@ -112,3 +112,7 @@ test_that("The %*% function works", {
 test_that("The print.bis620_sparse_matrix function works", {
   expect_true(inherits(print(x1), "dgCMatrix"))
 })
+
+test_that("The transpose function works", {
+  expect_true(inherits(t(x1), "bis620_sparse_matrix"))
+})

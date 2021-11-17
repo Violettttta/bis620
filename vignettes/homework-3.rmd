@@ -599,6 +599,17 @@ setMethod(
     b <- bis620_sparse_matrix(i = a$i, j = a$j, x = a$x)
   }
 )
+
+############################## Transpose ##############################
+
+setMethod(
+  "t",
+  c(x="bis620_sparse_matrix"),
+  function(x) {
+    b <- bis620_sparse_matrix(i = x@j, j = x@i, x = x@x)
+    b
+  }
+)
 ```
 
 ## 3
@@ -647,7 +658,7 @@ x4 <- sparseMatrix(
 
 # Test that the following are correct:
 x1 + x1
-t(print(x1)) %*% x1
+t(x1) %*% x1
 x1 %*% x1
 x1 + t(x2)
 x1 %*% x2 
