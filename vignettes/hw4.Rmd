@@ -2,7 +2,11 @@
 title: "hw4"
 author: "Clover Zhao (jz737), Ziqiu Zheng (zz377), Zimo Yang (zy263)"
 date: "12/4/2021"
-output: html_document
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{hw4}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
 
 ```{r setup, include=FALSE}
@@ -12,6 +16,12 @@ knitr::opts_chunk$set(echo = TRUE)
 Build the numpy matrix class:
 
 ```{r}
+library(reticulate)
+conda_install(python_version = "3.8",
+              envname="bis620",
+              packages = c("numpy", "pandas", "seaborn",
+                           "plotnine", "statsmodels"))
+use_condaenv("bis620")
 np <- import("numpy", convert = FALSE)
 setOldClass("numpy.ndarray")
 bis620_pymatrix <- setClass(Class = "bis620_pymatrix",
