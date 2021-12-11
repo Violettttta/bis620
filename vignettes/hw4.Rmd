@@ -1,7 +1,6 @@
 ---
 title: "hw4"
-author: "Clover Zhao (jz737), Ziqiu Zheng (zz377), Zimo Yang (zy263)"
-date: "12/4/2021"
+author: Clover Zhao (jz737), Ziqiu Zheng (zz377), Zimo Yang (zy263)
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{hw4}
@@ -259,7 +258,7 @@ setMethod(
 
 Test for the algorithms:
 
-```{r eval = FALSE}
+```{r}
 # Tests
 x1 <- new(Class="bis620_pymatrix",
   pymat = np$array(list(1:6, 1:6, 1:6,1:6, 1:6, 1:6))
