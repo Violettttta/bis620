@@ -19,8 +19,7 @@ Build the numpy matrix class:
 library(reticulate)
 conda_install(python_version = "3.8",
               envname="bis620",
-              packages = c("numpy", "pandas", "seaborn",
-                           "plotnine", "statsmodels"))
+              packages = c("numpy"))
 use_condaenv("bis620")
 np <- import("numpy", convert = FALSE)
 setOldClass("numpy.ndarray")

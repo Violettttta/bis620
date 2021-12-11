@@ -30,8 +30,7 @@ Imports:
   devtools,
   Rmpfr,
   Matrix,
-  methods,
-  reticulate
+  methods
 Remotes: 
   kaneplusplus/forceps,
   kaneplusplus/variate
@@ -39,6 +38,7 @@ Suggests:
   DT,
   rmarkdown,
   knitr,
-  testthat (>= 3.0.0)
+  testthat (>= 3.0.0),
+  reticulate
 Config/testthat/edition: 3
 VignetteBuilder: knitr
