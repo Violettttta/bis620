@@ -1,6 +1,7 @@
 ---
 title: "hw4"
-author: Clover Zhao (jz737), Ziqiu Zheng (zz377), Zimo Yang (zy263)
+author: "Clover Zhao (jz737), Ziqiu Zheng (zz377), Zimo Yang (zy263)"
+date: "12/4/2021"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{hw4}
@@ -17,11 +18,6 @@ Build the numpy matrix class:
 
 ```{r}
 library(reticulate)
-conda_install(python_version = "3.8",
-              envname="bis620",
-              packages = c("numpy", "pandas", "seaborn",
-                           "plotnine", "statsmodels"))
-use_condaenv("bis620")
 py_install("numpy")
 np <- import("numpy", convert = FALSE)
 setOldClass("numpy.ndarray")
